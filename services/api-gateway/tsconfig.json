@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "esModuleInterop": true,
+
+    "skipLibCheck": true,
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+
+    // Required if you use decorators (NestJS, TypeORM, DI frameworks).
+    "experimentalDecorators": true,
+
+    // Emits metadata for reflection (used by DI frameworks).
+    "emitDecoratorMetadata": true,
+
+    "sourceMap": true,
+    "isolatedModules": true
+  },
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

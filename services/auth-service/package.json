@@ -1,8 +1,8 @@
 {
-  "name": "api-gateway",
+  "name": "auth-service",
   "version": "1.0.0",
-  "description": "The Gateway",
-  "main": "src/app.ts",
+  "description": "Auth service",
+  "main": "src/app.js",
   "scripts": {
     "start": "ts-node src/app.ts",
     "dev": "ts-node-dev src/app.ts",
@@ -16,19 +16,22 @@
   "type": "commonjs",
   "dependencies": {
     "@bankora/logger": "../../packages/logger",
+    "@bankora/redis-client": "../../packages/redis-client",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "express-rate-limit": "^8.2.1",
     "helmet": "^8.1.0",
-    "http-proxy-middleware": "^3.0.5",
     "jsonwebtoken": "^9.0.3",
-    "winston": "^3.19.0"
+    "pg": "^8.19.0",
+    "typeorm": "^0.3.28",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/node": "^25.3.0",
+    "@types/jsonwebtoken": "^9.0.10",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^10.0.2",

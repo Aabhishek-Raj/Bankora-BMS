@@ -59,6 +59,7 @@ The API Gateway acts as a reverse proxy, forwarding requests to the appropriate 
 ## Dependencies
 
 ### Production Dependencies
+
 - express: Web framework
 - cors: Cross-origin resource sharing
 - helmet: Security headers
@@ -70,6 +71,7 @@ The API Gateway acts as a reverse proxy, forwarding requests to the appropriate 
 - dotenv: Environment variables
 
 ### Development Dependencies
+
 - TypeScript
 - ESLint & Prettier for code quality
 - ts-node & ts-node-dev for development
@@ -78,6 +80,7 @@ The API Gateway acts as a reverse proxy, forwarding requests to the appropriate 
 ## Security
 
 The API Gateway implements several security measures:
+
 - CORS protection
 - Rate limiting to prevent abuse
 - Security headers via Helmet

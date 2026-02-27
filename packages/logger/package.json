@@ -1,0 +1,21 @@
+{
+  "name": "@bankora/logger",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "logger private",
+  "scripts": {
+     "build": "tsc",
+    "build:pack": "tsc && npm pack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "winston": "^3.19.0"
+  }
+}
