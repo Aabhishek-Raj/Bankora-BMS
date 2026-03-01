@@ -1,6 +1,6 @@
 import request from 'supertest'
 import { config } from "./config"
-import { LoginUserType, UserType } from './types';
+import { AccountType, LoginUserType, UserType } from './types'
 
 export const getTestUser = (): UserType => ({
   firstName: "Test",
@@ -12,6 +12,7 @@ export const getTestUser = (): UserType => ({
 export const testState = {
   authToken: "",
   currentTestUser: getTestUser(),
+  accounts: [] as AccountType[]
 };
 
 export const apiGateway = request(config.apiGatewayUrl)
@@ -28,4 +29,19 @@ export async function loginUser(loginData: LoginUserType) {
     testState.authToken = response.body.token
   }
   return response
+}
+
+export async function cleanupResources() {
+  for (const account of testState.accounts) {
+    try {
+      await apiGateway
+        .delete(`/api/v1/accounts/${account.accountNumber}`)
+        .set("Authorization", `Bearer ${testState.authToken}`)
+    } catch (error) {
+      console.error(
+        `Failed to delete account ${account.accountNumber}:`,
+        error
+      );
+    }
+  }
 }
