@@ -10,9 +10,9 @@ import { AppDataSource } from './data-source'
 import { config } from './config'
 import { authRouter, indexRouter } from './routes'
 import { verifyToken } from './middlewares/auth.middleware'
+import { setupGracefulShutdown } from './utils/shutdown'
 import logger from './config/logger'
-// import init from './init';
-// import { setupGracefulShutdown } from './utils/shutdown';
+// import init from './init'
 
 const app = express()
 
@@ -32,11 +32,11 @@ AppDataSource.initialize()
   .then(async () => {
     // await init();
 
-    app.listen(config.service.port, () => {
+    const server = app.listen(config.service.port, () => {
       logger.info(`${config.service.name} is running on http://localhost:${config.service.port}`)
     })
 
-    // setupGracefulShutdown(server);
+    setupGracefulShutdown(server)
   })
   .catch((err) => {
     logger.error('error during Data Source initialization', err)
