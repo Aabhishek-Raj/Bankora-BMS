@@ -6,9 +6,12 @@ import redis from '../config/redis'
 const publicRoutes = ['/', '/health', '/api/v1/auth/login', '/api/v1/auth/register']
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
-  if (publicRoutes.includes(req.path)) {
+  console.log(req.path)
+  if (publicRoutes.includes(req.originalUrl)) {
+    console.log('second')
     return next()
   }
+  console.log('first')
 
   const token = req.headers['authorization']?.split(' ')[1]
 

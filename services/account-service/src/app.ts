@@ -23,7 +23,7 @@ AppDataSource.initialize()
   .then(async () => {
     // await init();
 
-    app.listen(config.service.port, () => {
+    app.listen(3002, () => {
       logger.info(`${config.service.name} is running on http://localhost:${config.service.port}`)
     })
   })

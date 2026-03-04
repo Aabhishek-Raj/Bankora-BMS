@@ -16,7 +16,9 @@
   "type": "commonjs",
   "dependencies": {
     "@bankora/logger": "../../packages/logger",
+    "@bankora/constants": "../../packages/constants",
     "@bankora/redis-client": "../../packages/redis-client",
+    "@bankora/kafka-client": "../../packages/kafka-client",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",

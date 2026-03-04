@@ -5,6 +5,8 @@ import { SAVINGS_ACCOUNT } from '../constants'
 import { TransactionType } from '../types/transaction.types'
 import { AppDataSource } from '../data-source'
 import logger from '../config/logger'
+import { publishAccountCreated } from '../events/producers/accountCreated.producer'
+import { publishAccountDeleted } from '../events/producers/accountDeleted.producer'
 
 interface AccountCreateDto {
   userId: number
@@ -37,10 +39,10 @@ export class AccountService {
 
     await this.accountRepository.save(account)
 
-    // await publishAccountCreated({
-    //   key: userId.toString(),
-    //   value: account,
-    // });
+    await publishAccountCreated({
+      key: userId.toString(),
+      value: account,
+    })
 
     return account
   }
@@ -86,10 +88,10 @@ export class AccountService {
     } else if (deleteRes.affected === 1) {
       logger.info(`account ${accountNumber} deleted for user ${userId}`, deleteRes)
 
-      //   await publishAccountDeleted({
-      //     key: userId.toString(),
-      //     value: account,
-      //   });
+      await publishAccountDeleted({
+        key: userId.toString(),
+        value: account,
+      })
     } else {
       logger.error(`account ${accountNumber} deletion failed for user ${userId}`, deleteRes)
       throw createError('account deletion failed', 500)

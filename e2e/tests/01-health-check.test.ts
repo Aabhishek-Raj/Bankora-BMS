@@ -4,7 +4,7 @@ describe("Health Check Tests", () => {
   test("API Gateway health check should return 200 OK", async () => {
     const response = await apiGateway.get("/health")
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(200)
     expect(response.body).toHaveProperty("status", "ok")
   })
 

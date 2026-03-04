@@ -15,9 +15,9 @@ class ProxyServices {
     {
       route: '/api/v1/accounts',
       target: config.services.accountsServiceUrl,
-      pathRewrite: { '^/': '/api/v1/accounts/'},
-      name: 'account-service'
-    }
+      pathRewrite: { '^/': '/api/v1/accounts/' },
+      name: 'account-service',
+    },
   ]
 
   private static createProxyOptions(service: ServiceConfig): Options {

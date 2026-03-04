@@ -6,7 +6,7 @@ export const getTestUser = (): UserType => ({
   firstName: "Test",
   lastName: "User",
   email: `johnDoe-@${Date.now()}.com`,
-  password: `password123${Date.now()}`,
+  password: `password123`,
 })
 
 export const testState = {

@@ -15,10 +15,8 @@ interface Config {
     databaseUrl: string
     jwtSecret: string
     jwtExpiresIn: string
-  }
-  services: {
-    authServiceUrl: string
-    apiGatewayUrl: string
+    redisUrl: string
+    kafkaBroker: string
   }
 }
 
@@ -31,10 +29,8 @@ export const config: Config = {
     databaseUrl: getEnv('DATABASE_URL'),
     jwtSecret: getEnv('JWT_SECRET'),
     jwtExpiresIn: getEnv('JWT_EXPIRES_IN', '24h'),
-  },
-  services: {
-    authServiceUrl: getEnv('AUTH_SERVICE_URL', 'http://localhost:3001'),
-    apiGatewayUrl: getEnv('API_GATEWAY_URL', 'http://localhost:3000'),
+    redisUrl: getEnv('REDIS_URL'),
+    kafkaBroker: getEnv('KAFKA_BROKER'),
   },
 }
 

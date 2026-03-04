@@ -5,6 +5,7 @@ class CustomSequencer extends Sequencer {
         const testOrder = [
             "01-health-check.test",
             "02-auth.test",
+            "03-account.test"
         ]
 
         return tests.sort((testA, testB) => {

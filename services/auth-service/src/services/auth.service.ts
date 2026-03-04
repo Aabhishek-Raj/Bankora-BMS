@@ -4,13 +4,12 @@ import bcrypt from 'bcrypt'
 
 import { AppDataSource } from '../data-source'
 import { config } from '../config'
-// import redis from '../config/redis';
 import { Repository } from 'typeorm'
 import { Credential } from '../entity/credential.entity'
 import { User } from '../entity/user.entity'
 import { createError } from '../utils'
 import redis from '../config/redis'
-// import { publishUserRegistered } from '../events/producers/userRegistered.producer';
+import { publishUserRegistered } from '../events/producers/userRegistered.producer'
 
 interface RegisterDto {
   firstName: string
@@ -51,10 +50,10 @@ class AuthService {
 
     await this.credentialRepository.save(credential)
 
-    // await publishUserRegistered({
-    //   key: user.id?.toString(),
-    //   value: user,
-    // });
+    await publishUserRegistered({
+      key: user.id?.toString(),
+      value: user,
+    })
 
     return user
   }

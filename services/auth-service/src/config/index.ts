@@ -16,6 +16,7 @@ interface Config {
     jwtSecret: string
     jwtExpiresIn: string
     redisUrl: string
+    kafkaBroker: string
   }
   services: {
     authServiceUrl: string
@@ -33,6 +34,7 @@ export const config: Config = {
     jwtSecret: getEnv('JWT_SECRET'),
     jwtExpiresIn: getEnv('JWT_EXPIRES_IN', '24h'),
     redisUrl: getEnv('REDIS_URL'),
+    kafkaBroker: getEnv('KAFKA_BROKER'),
   },
   services: {
     authServiceUrl: getEnv('AUTH_SERVICE_URL', 'http://localhost:3001'),
