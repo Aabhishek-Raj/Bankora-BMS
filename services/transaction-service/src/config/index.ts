@@ -16,6 +16,7 @@ interface Config {
     jwtSecret: string
     jwtExpiresIn: string
     redisUrl: string
+    kafkaBroker: string
   }
 }
 
@@ -29,6 +30,7 @@ export const config: Config = {
     jwtSecret: getEnv('JWT_SECRET'),
     jwtExpiresIn: getEnv('JWT_EXPIRES_IN', '24h'),
     redisUrl: getEnv('REDIS_URL'),
+    kafkaBroker: getEnv('KAFKA_BROKER'),
   },
 }
 
